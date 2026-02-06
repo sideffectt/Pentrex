@@ -9,6 +9,7 @@ import anthropic
 from pentrex.config import Config
 from pentrex.tools import get_all_tools, run_tool
 from pentrex.knowledge.prompt import SYSTEM_PROMPT
+from pentrex.cache import check_cache
 
 
 class Agent:
@@ -18,6 +19,11 @@ class Agent:
         self.history = []
 
     def chat(self, message: str) -> str:
+        # Check cache first (instant response)
+        cached = check_cache(message)
+        if cached:
+            return cached
+        
         self.history.append({"role": "user", "content": message})
 
         for _ in range(self.config.max_iterations):

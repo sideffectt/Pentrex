@@ -25,9 +25,9 @@ load_env()
 @dataclass
 class Config:
     api_key: str = ""
-    model: str = "claude-sonnet-4-5-20250929"
-    max_tokens: int = 4096
-    max_iterations: int = 10
+    model: str = "claude-haiku-4-5-20251001"  # Faster & cheaper
+    max_tokens: int = 2048  # Reduced for speed
+    max_iterations: int = 5  # Less loops needed
 
     def __post_init__(self):
         if not self.api_key:

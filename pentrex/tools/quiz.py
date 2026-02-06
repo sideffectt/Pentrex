@@ -24,6 +24,30 @@ QUESTIONS = {
             "answer": 1,
             "explanation": "inurl:admin searches for URLs containing 'admin', commonly used to find login pages and admin panels."
         },
+        {
+            "q": "What does WHOIS lookup reveal?",
+            "options": ["Open ports", "Domain registration info", "SSL certificates", "Server OS"],
+            "answer": 1,
+            "explanation": "WHOIS reveals domain registration details: owner, registrar, nameservers, and contact information."
+        },
+        {
+            "q": "Which tool is used for email harvesting?",
+            "options": ["Nmap", "theHarvester", "Nikto", "SQLmap"],
+            "answer": 1,
+            "explanation": "theHarvester collects emails, names, subdomains from public sources like search engines and social media."
+        },
+        {
+            "q": "What is passive reconnaissance?",
+            "options": ["Port scanning", "Gathering info without direct contact", "Exploiting vulnerabilities", "Social engineering"],
+            "answer": 1,
+            "explanation": "Passive recon gathers information without directly interacting with the target - using public sources, OSINT, etc."
+        },
+        {
+            "q": "Shodan is used to find?",
+            "options": ["SQL injections", "Internet-connected devices", "Malware samples", "Password hashes"],
+            "answer": 1,
+            "explanation": "Shodan is a search engine for internet-connected devices, revealing exposed services, IoT devices, and vulnerable systems."
+        },
     ],
     "scanning": [
         {
@@ -43,6 +67,30 @@ QUESTIONS = {
             "options": ["SYN scan", "NULL scan", "FIN scan", "XMAS scan"],
             "answer": 1,
             "explanation": "A NULL scan sends packets with no TCP flags set. It can bypass some firewalls and identify open ports on certain systems."
+        },
+        {
+            "q": "What does the -O flag in Nmap do?",
+            "options": ["Output to file", "OS detection", "Open ports only", "Optimize speed"],
+            "answer": 1,
+            "explanation": "The -O flag enables OS detection, analyzing responses to guess the target's operating system."
+        },
+        {
+            "q": "Which port does FTP use by default?",
+            "options": ["20/21", "22", "23", "25"],
+            "answer": 0,
+            "explanation": "FTP uses port 21 for control and port 20 for data transfer."
+        },
+        {
+            "q": "What is a banner grab?",
+            "options": ["Stealing cookies", "Capturing service version info", "DDoS attack", "ARP spoofing"],
+            "answer": 1,
+            "explanation": "Banner grabbing captures service banners to identify software versions and potential vulnerabilities."
+        },
+        {
+            "q": "Which Nmap flag enables aggressive scanning?",
+            "options": ["-sA", "-A", "-aS", "-aggressive"],
+            "answer": 1,
+            "explanation": "The -A flag enables aggressive mode: OS detection, version detection, script scanning, and traceroute."
         },
     ],
     "system_hacking": [
@@ -64,6 +112,30 @@ QUESTIONS = {
             "answer": 1,
             "explanation": "The Security Account Manager (SAM) stores local user account password hashes in Windows systems."
         },
+        {
+            "q": "What is privilege escalation?",
+            "options": ["Logging in remotely", "Gaining higher access rights", "Encrypting files", "Deleting logs"],
+            "answer": 1,
+            "explanation": "Privilege escalation is gaining higher access rights than initially granted, often from user to admin/root."
+        },
+        {
+            "q": "Which file contains password hashes on Linux?",
+            "options": ["/etc/passwd", "/etc/shadow", "/etc/hosts", "/etc/sudoers"],
+            "answer": 1,
+            "explanation": "/etc/shadow stores the actual password hashes, readable only by root."
+        },
+        {
+            "q": "What is a pass-the-hash attack?",
+            "options": ["Cracking passwords", "Using hash without cracking", "Stealing cookies", "DNS poisoning"],
+            "answer": 1,
+            "explanation": "Pass-the-hash uses captured NTLM hashes directly for authentication without needing the plaintext password."
+        },
+        {
+            "q": "SUID bit allows a program to run as?",
+            "options": ["Current user", "File owner", "Nobody", "Guest"],
+            "answer": 1,
+            "explanation": "SUID (Set User ID) makes a program run with the file owner's permissions, often exploited for privilege escalation."
+        },
     ],
     "web_attacks": [
         {
@@ -83,6 +155,30 @@ QUESTIONS = {
             "options": ["GET", "POST", "OPTIONS", "HEAD"],
             "answer": 1,
             "explanation": "POST requests that change state are common CSRF targets since they can be triggered by hidden forms on malicious sites."
+        },
+        {
+            "q": "What prevents XSS attacks?",
+            "options": ["Firewall", "Output encoding", "SSL certificate", "Strong passwords"],
+            "answer": 1,
+            "explanation": "Output encoding converts special characters to HTML entities, preventing injected scripts from executing."
+        },
+        {
+            "q": "What is directory traversal?",
+            "options": ["Listing folders", "Accessing files outside web root", "Creating directories", "Deleting files"],
+            "answer": 1,
+            "explanation": "Directory traversal uses ../ sequences to access files outside the intended web directory."
+        },
+        {
+            "q": "OWASP Top 10 is?",
+            "options": ["Antivirus list", "Web vulnerability ranking", "Password policy", "Firewall rules"],
+            "answer": 1,
+            "explanation": "OWASP Top 10 lists the most critical web application security risks, updated periodically."
+        },
+        {
+            "q": "What does a WAF protect against?",
+            "options": ["DDoS only", "Web application attacks", "Physical theft", "Social engineering"],
+            "answer": 1,
+            "explanation": "Web Application Firewall filters malicious HTTP traffic, blocking SQLi, XSS, and other web attacks."
         },
     ],
     "network_attacks": [
