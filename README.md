@@ -1,5 +1,7 @@
 # Pentrex
-![Pentrex Terminal](assets/screenshot_main.png)
+<p align="center">
+  <img src="assets/screenshot_main.png" width="100%" />
+</p>
 
 AI-powered penetration testing agent with multi-agent crew mode. Autonomous reconnaissance, scanning, vulnerability analysis, and exploitation through coordinated AI workers.
 
@@ -102,7 +104,7 @@ pentrex run --playbook web_recon -t example.com  # Run playbook
 ```
 
 ## Playbooks
-![Vulnerability Findings](assets/screenshot_findings.png)
+<img src="assets/screenshot_findings.png" width="100%" />
 
 ```bash
 pentrex run --playbook web_recon -t example.com
@@ -110,7 +112,7 @@ pentrex run --playbook network_scan -t 192.168.1.0/24
 ```
 
 ## Tools
-![Services Enumeration](assets/screenshot_enum.png)
+<img src="assets/screenshot_enum.png" width="100%" />
 
 **Built-in:** terminal, nmap, notes, web_search
 
