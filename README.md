@@ -1,20 +1,52 @@
 # Pentrex
 
-AI-powered penetration testing agent. Combines learning, reconnaissance, scanning, and exploitation workflows in a single terminal interface.
+AI-powered penetration testing agent with multi-agent crew mode. Autonomous reconnaissance, scanning, vulnerability analysis, and exploitation through coordinated AI workers.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Version](https://img.shields.io/badge/Version-2.0.0-orange.svg)
+![Version](https://img.shields.io/badge/Version-2.1.0-orange.svg)
 
-## What it does
+## Crew Mode
 
-- **Assist mode**: Chat with the agent — you control the flow
-- **Agent mode**: Autonomous task execution (recon, scanning, exploitation)
-- **Learn mode**: Quiz, explain concepts, tool guides, attack scenarios
-- **Terminal tool**: Run nmap, nikto, gobuster, sqlmap directly through the agent
-- **Notes system**: Findings saved with categories, persist across sessions
-- **Playbooks**: Pre-built attack workflows for web recon and network scanning
-- **MCP support**: Extend with external tool servers
+Pentrex can deploy a team of specialized AI agents that work together:
+
+```
+you ➜  /target 192.168.1.1
+you ➜  /crew full penetration test
+
+  Crew mode: full penetration test
+  Orchestrator + Workers • Press Ctrl+C to stop
+
+  [Orchestrator] Planning attack phases...
+  [Crew] Delegating to ReconWorker...
+  [ReconWorker] Running DNS enumeration...
+  [ReconWorker:tool] nmap_scan
+  [ReconWorker:tool] save_note
+  [Crew] Delegating to ScanWorker...
+  [ScanWorker] Full port scan with service detection...
+  [ScanWorker:tool] nmap_scan
+  [Crew] Delegating to VulnWorker...
+  [VulnWorker] Analyzing findings against known CVEs...
+  [Orchestrator] Found 3 open ports, 2 vulnerabilities. Delegating exploit verification...
+```
+
+| Worker | Role |
+|--------|------|
+| **ReconWorker** | DNS, subdomains, OSINT, fingerprinting |
+| **ScanWorker** | Port scanning, service detection, OS fingerprinting |
+| **VulnWorker** | CVE analysis, misconfiguration checks, severity rating |
+| **ExploitWorker** | PoC verification, safe exploitation attempts |
+
+The **Orchestrator** coordinates all workers, analyzes results between phases, and decides the next strategic move.
+
+## All Modes
+
+| Mode | Command | Description |
+|------|---------|-------------|
+| Assist | (default) | Chat with the agent. You control the flow. |
+| Agent | `/agent <task>` | Autonomous single-task execution. |
+| Crew | `/crew <task>` | Multi-agent orchestrator + specialized workers. |
+| Learn | `/learn` | Quiz, explanations, tool guides. |
 
 ## Install
 
@@ -51,15 +83,6 @@ pentrex                         # Launch TUI
 pentrex -t 192.168.1.1          # Launch with target
 pentrex run --playbook web_recon -t example.com  # Run playbook
 ```
-
-## Modes
-
-| Mode | Command | Description |
-|------|---------|-------------|
-| Assist | (default) | Chat with the agent. You control the flow. |
-| Agent | `/agent <task>` | Autonomous single-task execution. |
-| Crew | `/crew <task>` | Multi-agent mode. Orchestrator + specialized workers. |
-| Learn | `/learn` | Quiz, explanations, tool guides. |
 
 ## TUI Commands
 
